@@ -43,3 +43,23 @@
 
 </body>
 </html>
+<script>
+let bookings = 25;
+document.querySelector(".card").innerText = "Total Bookings: " + bookings;
+</script><form id="bookingForm">
+  <input type="text" placeholder="Name" required>
+  <button type="submit">Book</button>
+</form>
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  localStorage.setItem("booking", "New Booking Done");
+  alert("Booking Saved!");
+});
+</script>
+<script>
+let data = localStorage.getItem("booking");
+if(data){
+  document.body.innerHTML += "<p>" + data + "</p>";
+}
+</script>
