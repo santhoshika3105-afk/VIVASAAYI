@@ -77,3 +77,11 @@ new Chart(document.getElementById("myChart"), {
   }
 });
 </script>
+<h2 id="totalBookings">Total Bookings: 0</h2>
+<script>
+let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+// Update total count
+document.getElementById("totalBookings").innerText =
+  "Total Bookings: " + bookings.length;
+</script>
