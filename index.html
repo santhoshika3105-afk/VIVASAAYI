@@ -9,3 +9,38 @@
 </body>
 </html>
 <a href="dashboard.html">Dashboard</a>
+<form id="bookingForm">
+  <input type="text" id="name" placeholder="Enter Name" required>
+  <input type="date" id="date" required>
+  <button type="submit">Book Now</button>
+</form>
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let date = document.getElementById("date").value;
+
+  let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+  bookings.push({ name, date });
+
+  localStorage.setItem("bookings", JSON.stringify(bookings));
+
+  alert("Booking Saved!");
+});
+</script>
+<h2>Bookings</h2>
+<ul id="bookingList"></ul>
+
+<script>
+let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+let list = document.getElementById("bookingList");
+
+bookings.forEach(b => {
+  let li = document.createElement("li");
+  li.textContent = b.name + " - " + b.date;
+  list.appendChild(li);
+});
+</script>
