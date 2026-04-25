@@ -63,3 +63,17 @@ if(data){
   document.body.innerHTML += "<p>" + data + "</p>";
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<canvas id="myChart"></canvas>
+<script>
+new Chart(document.getElementById("myChart"), {
+  type: 'bar',
+  data: {
+    labels: ['Jan', 'Feb'],
+    datasets: [{
+      label: 'Bookings',
+      data: [5, 10]
+    }]
+  }
+});
+</script>
